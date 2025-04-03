@@ -1,2 +1,1 @@
-# BlairScriptReal
-🤓💀💻👻🤓🤓🤓
+# BlairScript
