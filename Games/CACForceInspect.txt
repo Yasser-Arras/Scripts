@@ -1,0 +1,18 @@
+﻿local plr = game.Players.LocalPlayer
+local ViewB = plr.PlayerGui.ViewPlayer.Main.Menu.ScrollingFrame.ViewOutfit
+ForceViewB = ViewB:Clone()
+ForceViewB.Parent = ViewB.Parent
+ForceViewB.Name = "ForceView"
+ForceViewB.Position = ViewB.Position - UDim2.new(0.3, 0, 0, 0)
+ForceViewB.Size = UDim2.new(0.2, 0, 0.1, 0)
+ForceViewB.Text = "📋..."
+ForceViewB.BackgroundColor3 = Color3.fromRGB(209, 33, 33)
+local function ForceShow()
+local username = plr.PlayerGui.ViewPlayer.Main.Menu.TopBar.PlayerName.Text:match("@([^)]+)")
+	game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Enabled = true
+	game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Main.Visible = true
+local npcHum = game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Main.OutfitDetails.ViewportHolder.Holder.DraggableNPCVPF.NPC:WaitForChild("Humanoid")
+local description = game.Workspace:FindFirstChild(username).Humanoid:GetAppliedDescription()
+npcHum:ApplyDescription(description)
+end
+ForceViewB.MouseButton1Click:Connect(ForceShow)
