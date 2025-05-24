@@ -1,4 +1,4 @@
-﻿local plr = game.Players.LocalPlayer
+local plr = game.Players.LocalPlayer
 local ViewB = plr.PlayerGui.ViewPlayer.Main.Menu.ScrollingFrame.ViewOutfit
 ForceViewB = ViewB:Clone()
 ForceViewB.Parent = ViewB.Parent
@@ -11,7 +11,11 @@ local function ForceShow()
 local username = plr.PlayerGui.ViewPlayer.Main.Menu.TopBar.PlayerName.Text:match("@([^)]+)")
 	game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Enabled = true
 	game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Main.Visible = true
-local npcHum = game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Main.OutfitDetails.ViewportHolder.Holder.DraggableNPCVPF.NPC:WaitForChild("Humanoid")
+local npcHum = game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Main.OutfitDetails.ViewportHolder.Holder.DraggableNPCVPF.NPC:WaitForChild("Humanoid", 5)
+npcHum:WaitForChild("HumanoidDescription"):Destroy()
+local literaldescription = game.Workspace:FindFirstChild(username).Humanoid:WaitForChild("HumanoidDescription", 5):Clone()
+literaldescription.Parent = npcHum
+wait(6)
 local description = game.Workspace:FindFirstChild(username).Humanoid:GetAppliedDescription()
 npcHum:ApplyDescription(description)
 end
