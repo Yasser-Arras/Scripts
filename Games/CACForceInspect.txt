@@ -1,3 +1,8 @@
+local npcHum = game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Main.OutfitDetails.ViewportHolder.Holder:FindFirstChild("DraggableNPCVPF")
+if not npcHum or npcHum == nil then print("VPF Not loaded yet, make sure to at least inspect one outfit before executing this..") return end
+
+
+
 local plr = game.Players.LocalPlayer
 local ViewB = plr.PlayerGui.ViewPlayer.Main.Menu.ScrollingFrame.ViewOutfit
 ForceViewB = ViewB:Clone()
@@ -15,8 +20,9 @@ local npcHum = game.Players.LocalPlayer.PlayerGui.InspectHumanoidDescription.Mai
 npcHum:WaitForChild("HumanoidDescription"):Destroy()
 local literaldescription = game.Workspace:FindFirstChild(username).Humanoid:WaitForChild("HumanoidDescription", 5):Clone()
 literaldescription.Parent = npcHum
-wait(6)
+wait(5)
 local description = game.Workspace:FindFirstChild(username).Humanoid:GetAppliedDescription()
 npcHum:ApplyDescription(description)
 end
 ForceViewB.MouseButton1Click:Connect(ForceShow)
+print("Loaded")
